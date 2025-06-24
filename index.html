@@ -24,6 +24,10 @@
         allowLocalhostAsSecureOrigin: true
       });
     });
+    OneSignal.isPushNotificationsEnabled().then(x => alert("Enabled? " + x));
+    OneSignal.push(() => {
+  OneSignal.showSlidedownPrompt(); // Force the ask
+});
   </script>
 </head>
 <body>
