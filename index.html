@@ -1,16 +1,23 @@
-<meta property="og:title" content="Instantaneous Notification">
-<meta property="og:description" content="the best Grow a Garden stock notifier i think lol">
-<meta property="og:url" content="https://imispelledmyname.github.io/instantaneous_notification">
-<meta name="theme-color" content="#ff6600">
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8" />
   <title>Instantaneous Notification</title>
+
+  <!-- OG Tags for Discord -->
+  <meta property="og:title" content="Instantaneous Notification">
+  <meta property="og:description" content="the best Grow a Garden stock notifier i think lol">
+  <meta property="og:url" content="https://imispelledmyname.github.io/instantaneous_notification">
+  <meta property="og:image" content="https://cdn.onesignal.com/images/notification-logo.png">
+  <meta name="theme-color" content="#ff6600">
+
   <link rel="manifest" href="manifest.json" />
   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" async></script>
   <script>
+    console.log("Initializing OneSignal...");
     window.OneSignal = window.OneSignal || [];
     OneSignal.push(() => {
+      console.log("OneSignal push triggered ✅");
       OneSignal.init({
         appId: "0d8be7fa-60b6-453d-a531-30aa3428838b",
         notifyButton: { enable: true },
@@ -20,7 +27,7 @@
   </script>
 </head>
 <body>
-  <h1>Instantenous Notification</h1>
+  <h1>Instantaneous Notification</h1>
   <p>ello</p>
 </body>
 </html>
