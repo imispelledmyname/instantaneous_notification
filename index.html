@@ -11,25 +11,44 @@
   <meta property="og:image" content="https://cdn.onesignal.com/images/notification-logo.png">
   <meta name="theme-color" content="#ff6600">
 
+  <!-- PWA manifest -->
   <link rel="manifest" href="manifest.json" />
-  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" async></script>
+
+  <!-- OneSignal SDK -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
   <script>
-    console.log("Initializing OneSignal...");
-    window.OneSignal = window.OneSignal || [];
-    OneSignal.push(() => {
-      console.log("OneSignal push triggered ✅");
-      OneSignal.init({
-        appId: "0d8be7fa-60b6-453d-a531-30aa3428838b",
+    // ✅ v16-compliant init
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      console.log("✅ OneSignalDeferred initialized");
+
+      await OneSignal.init({
+        appId: "0d8be7fa-60b6-453d-a531-30aa3428838b", // YOUR App ID intact
         notifyButton: { enable: true },
-        allowLocalhostAsSecureOrigin: true
+        allowLocalhostAsSecureOrigin: true,
+        promptOptions: {
+          slidedown: {
+            enabled: true,
+            actionMessage: "Enable push to get stock alerts!",
+            acceptButtonText: "Yes, push me!",
+            cancelButtonText: "Nope"
+          }
+        }
       });
+
+      console.log("🚀 OneSignal initialized");
+
+      // 🔔 Trigger the prompt
+      OneSignal.Slidedown.promptPush();
+
+      // 🔎 Log current push info
+      console.log("📶 Push supported:", OneSignal.Notifications.isPushSupported());
+      console.log("🔓 Permission:", OneSignal.Notifications.permission);
+      console.log("✅ Subscribed:", OneSignal.User.PushSubscription.optedIn);
     });
-    OneSignal.isPushNotificationsEnabled().then(x => alert("Enabled? " + x));
-    OneSignal.push(() => {
-  OneSignal.showSlidedownPrompt(); // Force the ask
-});
   </script>
 </head>
+
 <body>
   <h1>Instantaneous Notification</h1>
   <p>ello</p>
