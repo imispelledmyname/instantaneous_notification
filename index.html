@@ -6,9 +6,8 @@
 
   <!-- OG Tags for Discord -->
   <meta property="og:title" content="Instantaneous Notification">
-  <meta property="og:description" content="the best Grow a Garden stock notifier i think lol">
+  <meta property="og:description" content="The fastest Grow a Garden stock notifier">
   <meta property="og:url" content="https://imispelledmyname.github.io/instantaneous_notification">
-  <meta property="og:image" content="https://cdn.onesignal.com/images/notification-logo.png">
   <meta name="theme-color" content="#ff6600">
   <meta name="robots" content="index, follow">
   
@@ -18,35 +17,7 @@
   <!-- OneSignal SDK -->
   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
   <script>
-    // ✅ v16-compliant init
-    window.OneSignalDeferred = window.OneSignalDeferred || [];
-    OneSignalDeferred.push(async function(OneSignal) {
-      console.log("✅ OneSignalDeferred initialized");
-
-      await OneSignal.init({
-        appId: "0d8be7fa-60b6-453d-a531-30aa3428838b", // YOUR App ID intact
-        notifyButton: { enable: true },
-        allowLocalhostAsSecureOrigin: true,
-        promptOptions: {
-          slidedown: {
-            enabled: true,
-            actionMessage: "Enable push to get stock alerts!",
-            acceptButtonText: "Yes, push me!",
-            cancelButtonText: "Nope"
-          }
-        }
-      });
-
-      console.log("🚀 OneSignal initialized");
-
-      // 🔔 Trigger the prompt
-      OneSignal.Slidedown.promptPush();
-
-      // 🔎 Log current push info
-      console.log("📶 Push supported:", OneSignal.Notifications.isPushSupported());
-      console.log("🔓 Permission:", OneSignal.Notifications.permission);
-      console.log("✅ Subscribed:", OneSignal.User.PushSubscription.optedIn);
-    });
+    alert("wip btw")
   </script>
 </head>
 
